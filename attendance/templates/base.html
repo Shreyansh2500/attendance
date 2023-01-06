@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{% static 'base.css' %}">
+</head>
+<body>
+    <nav>
+        <label class="logo">Attendance and leave Management System </label>
+        <ul>
+            <div class="signup">
+                <span>12:00:00</span>
+                <div class="time">
+                    <img src="static/time.png">
+                </div>
+            </div>
+            <div class="logout">
+                <img src="static/logout.png">
+            </div>
+        </ul>
+    </nav>
+    <div class="sidebar">
+        <div class="data">
+            <img src="static/profile.png">
+            <h3 class="text">
+                GOURAV AGARWAL
+            </h3>
+            <h5 class="id">
+                EMPLOYEE ID: 2134
+            </h5>
+        </div>
+        <label class="content">
+            <ul>
+                <li><a href="#">leave request</a></li><br>
+                <li><a href="#">leave history</a></li><br>
+                <li><a href="#">employee's record</a></li><br>
+                <li><a href="#">leave approval</a></li>
+            </ul>
+    </label>
+    <label class="leave">
+        <hr>
+        <ul>
+            <li>personal leaves left: 20</li><br>
+            <li>medical leaves left: 15</li>
+        </ul>
+    </label>
+
+    </div>
+</body>
+</html>
