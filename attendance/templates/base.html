@@ -13,8 +13,8 @@
 
 <body>
     <nav>
-        <label class="logo">Attendance and leave Management System </label>
-        <ul>
+        <h1 class="logo">Attendance and leave Management System </h1>
+        <div class="nav-box">
             <div class="signup">
                 <span>12:00:00</span>
                 <div class="time">
@@ -24,9 +24,9 @@
             <div class="logout">
                 <img src="static/logout.png">
             </div>
-        </ul>
+        </div>
     </nav>
-    <div>
+    
     <div class="sidebar">
         <div class="data">
             <div class="profile"><img src="static/profile.png"></div>
@@ -56,6 +56,7 @@
                 </ul>
         </div> 
     </div>
+    <div class="box">
     {% block content %}
     {% endblock content %} 
 </div>

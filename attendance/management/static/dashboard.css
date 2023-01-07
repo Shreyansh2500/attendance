@@ -1,22 +1,25 @@
 .dashboard{
-    float: right;
     background-color: blue;
-    width: 85%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 45% 45%;
-    gap:2% 1%;
-    height: 90vh;
-    padding: 1%;
-    align-content: center;
+    position: relative;
+    padding: 2%;
+    width: 100%;
     background-color: rgb(247, 247, 247);
+    height: 90vh;
 }
 .dashboard div {
     border-radius: 5%;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.212);
 }
 .pie-chart{
-    display: flex;
+    height: 40%;
+    width: 43%;
+    float: right;
+}
+.bar-graph{
+    float: left;
+    width: 600px;
+    margin-right: 1%;
+    height: 400px;
 }
 #piechart{
     height: 100%;
@@ -24,6 +27,13 @@
     box-shadow: none;
     overflow: hidden;
     object-fit: cover;
+}
+#columnchart_values{
+    height:100%;
+    width: 100%;
+    box-shadow: none;
+    overflow: hidden;
+    object-fit:cover;
 }
 .calendar h3{
     padding-top: 1%;
@@ -43,6 +53,10 @@
     border: 1px solid;
 
 }
+.calendar tbody td:first-child,.calendar tbody td:last-child{
+    font-weight: 500;
+    color:red;
+}
 .calendar table th {
     text-align: center;
 }
@@ -51,4 +65,23 @@
 }
 .calendar{
     background-color: #ffffff;
+    flex-basis: 0.5;
+    height: 50%;
+    width: 43%;
+    margin-bottom: 2%;
+    float: right;
+}
+.stats{
+    width: 600px;
+    float: left;
+    height: 20vh;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 } 
+.stats h3 {
+    text-align: center;
+}

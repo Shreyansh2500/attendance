@@ -3,9 +3,9 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawpieChart);
 
-      function drawChart() {
+      function drawpieChart() {
 
         var data = google.visualization.arrayToDataTable([
           ['Type', 'Number of Days'],
@@ -23,11 +23,42 @@
 
         chart.draw(data, options);
       }
+
+      // bar graph
+      google.charts.load("current", {packages:['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["weeks", "hours", { role: "style" } ],
+        ["week1", 18.94, "#b87333"],
+        ["week2", 20.49, "silver"],
+        ["week3", 19.30, "gold"],
+        ["week4", 21.45, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "hours worked per week",
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
     </script>
   {% endblock head %}
 {% block content %}
     <div class="dashboard">
-        <div class="bar-graph">k</div>
+        <div class="bar-graph">
+          <div id="columnchart_values"></div>
+        </div>
         <div class="calendar">
           <h3>JANUARY 2023</h3>
           <table >
@@ -101,9 +132,13 @@
 
 
         </div>
-        <div class="stats">r</div>
+
         <div class="pie-chart">
-            <div id="piechart"></div>
-        </div>
+          <div id="piechart"></div>
+      </div>
+      <div class="stats">
+        <h3>Total Hours Worked: 52hrs</h3>
+        <h3>Total Average Hours Worked: 7hrs/Day</h3>
+      </div>
     </div>  
 {% endblock content %} 
