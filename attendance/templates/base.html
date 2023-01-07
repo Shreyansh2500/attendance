@@ -1,12 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    {% block head %} {% endblock head %}
 </head>
+
 <body>
     <nav>
         <label class="logo">Attendance and leave Management System </label>
@@ -22,32 +26,39 @@
             </div>
         </ul>
     </nav>
+    <div>
     <div class="sidebar">
         <div class="data">
-            <img src="static/profile.png">
-            <h3 class="text">
-                GOURAV AGARWAL
-            </h3>
-            <h5 class="id">
-                EMPLOYEE ID: 2134
-            </h5>
+            <div class="profile"><img src="static/profile.png"></div>
+            <div class="emp-data">
+                <h3 class="text">
+                    GOURAV AGARWAL
+                </h3>
+                <h5 class="id">
+                    EMPLOYEE ID: 2134
+                </h5>
+            </div>
         </div>
-        <label class="content">
-            <ul>
-                <li><a href="#">leave request</a></li><br>
-                <li><a href="#">leave history</a></li><br>
-                <li><a href="#">employee's record</a></li><br>
-                <li><a href="#">leave approval</a></li>
-            </ul>
-    </label>
-    <label class="leave">
-        <hr>
-        <ul>
-            <li>personal leaves left: 20</li><br>
-            <li>medical leaves left: 15</li>
-        </ul>
-    </label>
-
+        <div class="options">
+            <label class="content">
+                <ul>
+                    <li><a href="#">leave request</a></li>
+                    <li><a href="#">leave history</a></li>
+                    <li><a href="#">employee's record</a></li>
+                    <li><a href="#">leave approval</a></li>
+                </ul>
+            </label>
+        </div>
+        <div class="leave">
+                <ul>
+                    <li>personal leaves left: 20</li>
+                    <li>medical leaves left: 15</li>
+                </ul>
+        </div> 
     </div>
+    {% block content %}
+    {% endblock content %} 
+</div>
 </body>
+
 </html>

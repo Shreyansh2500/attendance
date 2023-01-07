@@ -11,30 +11,25 @@ body{
 nav{
     background-color: #2D8BBA;
     height: 80px;
+    display: flex;
+    align-items: center;
     width: 100%;
+    flex-wrap: wrap;
 }
-label.logo{
+.logo{
     color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
+    font-size: 1.5rem;
+    padding-left: 3%;
     font-weight: bold;
 }
+
 nav ul{
     float: right;
     margin-right: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
-nav ul li{
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-    height: max-content;
-    width: max-content;
 }
 .logout{
     height: 50px;
@@ -60,17 +55,21 @@ nav ul li{
     border: 3px;
     border-radius: 8px;
     top: 2%;
-    width: 10%;
-    height: 5%;
+    width: 13%;
+    height: 7%;
+    min-height: 50px;
+    min-width: 100px;
     position: absolute;
     right: 8%;
+    display: flex;
+    align-items: center;
 }
 .signup span{
     color: black;
+    flex-basis: 80%;
     justify-content: center;
     align-items: center;
-    font-size: 1.7rem;
-    overflow: hidden;
+    font-size: 1.5rem;
     width: 60%;
 }
 .signup img{
@@ -84,71 +83,78 @@ nav ul li{
     height: 100%;
 }
 .sidebar{
-    position: sticky;
+    position: absolute;
     left: 0%;
-    width: 30vh;
-    height: 91.5vh;
+    float: left;
+    width: 15%;
+    height: 100%;
     background-color: #E2F4FD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .sidebar .data img{
     background-repeat: no-repeat;
-    height: 20%;
-    left: 20%;
-    top: 6%;
-    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
     box-sizing: border-box;
 
 }
 .sidebar .data .text{
-    position: absolute;
-    left: 14%;
-    top: 29%;
-    font-size: x-large;
-    align-items: center;
+    font-size: 1rem;
     font-weight: 400;
-    justify-content: center;
-    display: inline;
+    text-align: center;
 }
 .sidebar .data .id{
-    position: absolute;
-    left: 18%;
-    top: 33%;
-    font-size: larger;
-    align-items: center;
+    font-size: 0.6rem;
     font-weight: 350;
-    justify-content: center;
+    text-align: center;
+}
+.sidebar .profile{
+    height: 50%;
+    width: 100%;
+    flex-basis: 1;
+}
+.sidebar .emp-data{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content:space-around;
 }
 .sidebar .data{
-    box-sizing: border-box;
-    height: 43%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30%;
+    min-height: 40%;
+    justify-content:center;
     border-bottom: 1px solid black;
+
 }
-.sidebar .content{
-    text-transform: uppercase;
-    position: absolute;
-    left: 14%;
-    top: 50%;
-    font-size: x-large;
-    line-height: 100%;
-    display: inline-block;
+.sidebar .options{
+    display: flex;
+    height: 30%;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;          
+}
+.options li{
+    text-align: left;
 }
 .content ul li a{
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .sidebar .leave{
-    bottom: 6%;
-    left: 12%;
-    line-height: 100%;
-    position: absolute;
+    display: flex;
+    height: 20%;
+    flex-direction: column;
+    align-items: center;
     text-transform: uppercase;
-    font-size: larger;
+    font-size: 0.8rem;
     font-weight: 400;
-    display: inline-block;
 }
-nav ul li a .time{
-    box-sizing: border-box;
-    border-width: 2%;
-    border-top-left-radius: 5%;
-    width: 5%;
+.leave li{
+    text-align: center;
 }

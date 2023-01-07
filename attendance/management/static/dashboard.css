@@ -1,0 +1,54 @@
+.dashboard{
+    float: right;
+    background-color: blue;
+    width: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 45% 45%;
+    gap:2% 1%;
+    height: 90vh;
+    padding: 1%;
+    align-content: center;
+    background-color: rgb(247, 247, 247);
+}
+.dashboard div {
+    border-radius: 5%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.212);
+}
+.pie-chart{
+    display: flex;
+}
+#piechart{
+    height: 100%;
+    width: 100%;
+    box-shadow: none;
+    overflow: hidden;
+    object-fit: cover;
+}
+.calendar h3{
+    padding-top: 1%;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    border-radius: 5%;
+    background-color: rgb(68, 135, 236);
+}
+.calendar table{
+    padding: 4%;
+    width: 100%;
+    height: 80%;
+    border-collapse: collapse;
+}
+.calendar  th{
+    border: 1px solid;
+
+}
+.calendar table th {
+    text-align: center;
+}
+.calendar table td{
+    text-align:center;
+}
+.calendar{
+    background-color: #ffffff;
+} 
