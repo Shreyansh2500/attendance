@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'history.css' %}">
+{% endblock head %}
+{% block content %}
+<div class="request">
+    <h1 class="head">LEAVE HISTORY</h1>
+    <table>
+        <tr>
+            <th>SL. NO</th>
+            <th>EMPLOYEE ID</th>
+            <th>START DATE</th>
+            <th>END DATE</th>
+            <th>DURATION</th>
+            <th>TYPE</th>
+            <th>STATUS</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2134</td>
+            <td>02.01.2023</td>
+            <td>10.01.2023</td>
+            <td>10 days</td>
+            <td>HOLIDAY</td>
+            <td>APPROVED</td>
+        </tr>
+            <tr>
+                <td>1</td>
+                <td>2134</td>
+                <td>02.01.2023</td>
+                <td>10.01.2023</td>
+                <td>10 days</td>
+                <td>HOLIDAY</td>
+                <td>DENIED</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2134</td>
+                <td>02.01.2023</td>
+                <td>10.01.2023</td>
+                <td>10 days</td>
+                <td>HOLIDAY</td>
+                <td>APPROVED</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2134</td>
+                <td>02.01.2023</td>
+                <td>10.01.2023</td>
+                <td>10 days</td>
+                <td>HOLIDAY</td>
+                <td>DENIED</td>
+            </tr>
+    </table>
+</div>
+{% endblock content %} 
