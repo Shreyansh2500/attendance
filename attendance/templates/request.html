@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'request.css' %}">
+{% endblock head %}
+{% block content %}
+<div class="form">
+
+    <h1 class="head">Apply Leave</h1>
+    <div class="inner">
+        <form>
+            <label for="type"> Leave Type</label>
+            <select class="options">
+                <option></option>
+                <option>medical</option>
+                <option>personal</option>
+            </select>
+            <div class="duration">
+            <div class="start">
+                <label for="start">start date :</label>
+                <input type="date" id="start">
+            </div>
+            <div class="end">
+                <label class ="date" for="end">end date :</label>
+                <input type="date" id="end">
+            </div>
+        </div>
+            <label class="reason " for="reason">reason</label>
+            <textarea class="reason space" rows="7">
+            </textarea>
+        </form>
+        <button class="submit">SUBMIT</button>
+        <button class="cancel">CANCEL</button>
+    </div>
+</div>
+{% endblock content %}
