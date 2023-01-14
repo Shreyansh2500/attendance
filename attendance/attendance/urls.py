@@ -16,7 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from management import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home)
+    path('approval/<int:leaveId>/<int:status>/',views.decision,name="decision"),
+    path('approval/',views.approval,name="approval"),
+    path('',views.home,name="home"),
+    path('record/',views.record,name="record"),
+    path('request/',views.request,name="request"),
+    path('history/',views.history,name="history"),
+
+    #path('<int:year>/<str:month>/', views.home, name="home"),
+    path('dashboard/',views.dashboard),
 ]

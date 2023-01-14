@@ -16,42 +16,17 @@
             <th>TYPE</th>
             <th>STATUS</th>
         </tr>
+        {% for leave in leaves %}
         <tr>
-            <td>1</td>
-            <td>2134</td>
-            <td>02.01.2023</td>
-            <td>10.01.2023</td>
-            <td>10 days</td>
-            <td>HOLIDAY</td>
-            <td>APPROVED</td>
+            <td>{{forloop.counter}}</td>
+            <td>25</td>
+            <td>{{leave.Start_date}}</td>
+            <td>{{leave.End_date}}</td>
+            <td>{{leave.No_of_Days}}</td>
+            <td>{{leave.Type}}</td>
+            <td>{{leave.Pending_Status}}</td>
         </tr>
-            <tr>
-                <td>1</td>
-                <td>2134</td>
-                <td>02.01.2023</td>
-                <td>10.01.2023</td>
-                <td>10 days</td>
-                <td>HOLIDAY</td>
-                <td>DENIED</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2134</td>
-                <td>02.01.2023</td>
-                <td>10.01.2023</td>
-                <td>10 days</td>
-                <td>HOLIDAY</td>
-                <td>APPROVED</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2134</td>
-                <td>02.01.2023</td>
-                <td>10.01.2023</td>
-                <td>10 days</td>
-                <td>HOLIDAY</td>
-                <td>DENIED</td>
-            </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock content %} 

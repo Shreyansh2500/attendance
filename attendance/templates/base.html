@@ -16,7 +16,7 @@
         <h1 class="logo">Attendance and leave Management System </h1>
         <div class="nav-box">
             <div class="signup">
-                <span>12:00:00</span>
+                <span>12:00:00:</span>
                 <div class="time">
                     <img src="static/time.png">
                 </div>
@@ -42,10 +42,10 @@
         <div class="options">
             <label class="content">
                 <ul>
-                    <li><a href="#">Leave Request</a></li>
-                    <li><a href="#">Leave History</a></li>
-                    <li><a href="#">Employee's Record</a></li>
-                    <li><a href="#">Leave Approval</a></li>
+                    <li><a href="{% url 'request' %}">Leave Request</a></li>
+                    <li><a href="{% url 'history' %}">Leave History</a></li>
+                    <li><a href="{% url 'record' %}">Employee's Record</a></li>
+                    <li><a href="{% url 'approval' %}">Leave Approval</a></li>
                 </ul>
             </label>
         </div>
