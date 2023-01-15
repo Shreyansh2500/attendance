@@ -11,10 +11,11 @@
 
     var data = google.visualization.arrayToDataTable([
       ['Type', 'Number of Days'],
-      ['Present', 11],
-      ['Medical leave', 2],
-      ['Personal leave', 2],
-      ['Absent ', 2],
+      ['Present', {{ present }}],
+      ['Medical leave', {{ medical }}],
+      ['Personal leave', {{ personal }}],
+      ['Absent ', {{ absent }}],
+      ['Holiday ', {{ Holiday }}],
     ]);
 
     var options = {
@@ -125,7 +126,7 @@
         </tr>
       </tbody>
     </table>-->
-   {{ cal|safe }}
+  <!-- {{ cal|safe }}-->
 
 
 
@@ -142,8 +143,8 @@
     <div id="piechart"></div>
   </div>
   <div class="stats">
-    <h3>Total Hours Worked: 52hrs</h3>
-    <h3>Total Average Hours Worked: 7hrs/Day</h3>
+    <h3>Total Hours Worked: {{ totalH }}hrs</h3>
+    <h3>Total Average Hours Worked: {{ averH }}hrs/Day</h3>
   </div>
 </div>
 {% endblock content %}

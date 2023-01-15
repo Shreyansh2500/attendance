@@ -21,19 +21,19 @@
         {% for approval in approvals %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>{{ approval.Employee_name.first_name }} {{ approval.Employee_name.last_name }}</td>
-            <td>12</td>
+            <td>{{ approval.Employee_name.get_full_name }} </td>
+            <td>{{approval.Employee_name.Employee_id}}</td>
             <td>{{approval.Start_date}}</td>
             <td>{{approval.End_date}}</td>
             <td>{{approval.No_of_Days}}</td>
             <td>{{approval.Type}}</td>
             <td>
                 <a href="{% url 'decision' approval.id 1 %}">
-                                    <button class="tick" id="approved" value={{approval.id}} action="{% url 'decision' approval.id 1 %}" type="submit">tick<img  src="static/correct.png"></button>
+                                    <button class="tick" id="approved" value={{approval.id}} action="{% url 'decision' approval.id 1 %}" type="submit"><img  src="{% static 'correct.png' %}"></button>
                 </a>
                 <a href="{% url 'decision' approval.id 0 %}">
 
-                                    <button class="wrong" id="disapproved" value={{approval.id}} action="{% url 'decision' approval.id 0 %}" type="submit"><img src="static/cross.png"></button>
+                                    <button class="wrong" id="disapproved" value={{approval.id}} action="{% url 'decision' approval.id 0 %}" type="submit"><img src="{% static 'cross.png' %}"></button>
                 </a>
             </td>
         </tr>

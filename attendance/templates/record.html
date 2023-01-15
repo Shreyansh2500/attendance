@@ -11,11 +11,12 @@
     function drawpieChart() {
 
         var data = google.visualization.arrayToDataTable([
-            ['Type', 'Number of Days'],
-            ['Present', 11],
-            ['Medical Leave', 2],
-            ['Personal Leave', 2],
-            ['Absent ', 2],
+        ['Type', 'Number of Days'],
+        ['Present', {{ present }}],
+        ['Medical leave', {{ medical }}],
+        ['Personal leave', {{ personal }}],
+        ['Absent ', {{ absent }}],
+        ['Holiday ', {{ Holiday }}],
         ]);
 
         var options = {
@@ -60,33 +61,36 @@
 {% endblock head %}
 {% block content %}
 <div class="head">
-    <h1>record: GOURAV AGARWAL</h1>
-    <select class="option">
+
+    <h1>record:{{ currentUser.get_full_name }}</h1>
+    <select class="option" onchange="load()"  id="sid">
         <option>Choose Employee</option>
-        <option>Gourav Agarwal</option>
-        <option>Gourav Agarwal</option>
-        <option>Gourav Agarwal</option>
-        <option>Gourav Agarwal</option>
+        {% for user in users %}
+        <option value="{{ user.Employee_id }}"> <a href=" {% url 'chooseRecord' user.Employee_id %} ">
+            {{ user.get_full_name }}</a>
+        </option>
+        {% endfor %}
+        
     </select>
 </div>
 <div class="outer">
     <div class="record">
         <h3 class="key">NO. OF DAYS PRESENT:</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ present }}</h3>
         <h3 class="key">NO. OF DAYS ABSENT :</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ absent }}</h3>
         <h3 class="key">NO. OF LEAVES :</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{personal|add:medical}}</h3>
         <h3 class="key">TOTAL WORKING DAYS:</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ present|add:absent}}</h3>
         <h3 class="key">TOTAL WORKING HOURS :</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ totalH }}</h3>
         <h3 class="key">AVERAGE WORKING HOURS :</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ averH }}</h3>
         <h3 class="key">PERSONAL LEAVE LEFT :</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ currentUser.Personal_leave }}</h3>
         <h3 class="key">MEDICAL LEAVE LEFT:</h3>
-        <h3 class="value">14</h3>
+        <h3 class="value">{{ currentUser.Medical_leave }}</h3>
     </div>
     <div class="bar-graph">
         <div id="columnchart_values"></div>
@@ -168,35 +172,29 @@
                 <th>TYPE</th>
                 <th>STATUS</th>
             </tr>
+            {% for leave in leaves %}
             <tr>
-                <td>02.01.2023</td>
-                <td>10.01.2023</td>
-                <td>10 days</td>
-                <td>HOLIDAY</td>
-                <td>APPROVED</td>
+                <td>{{leave.Start_date}}</td>
+                <td>{{leave.End_date}}</td>
+                <td>{{leave.No_of_Days}}</td>
+                <td>{{leave.Type}}</td>
+                <td>{{leave.Pending_Status}}</td>
             </tr>
-                <tr>
-                    <td>02.01.2023</td>
-                    <td>10.01.2023</td>
-                    <td>10 days</td>
-                    <td>HOLIDAY</td>
-                    <td>DENIED</td>
-                </tr>
-                <tr>
-                    <td>02.01.2023</td>
-                    <td>10.01.2023</td>
-                    <td>10 days</td>
-                    <td>HOLIDAY</td>
-                    <td>APPROVED</td>
-                </tr>
-                <tr>
-                    <td>02.01.2023</td>
-                    <td>10.01.2023</td>
-                    <td>10 days</td>
-                    <td>HOLIDAY</td>
-                    <td>DENIED</td>
-                </tr>
+            {% endfor %}
+
         </table>
     </div>
 </div>
-    {% endblock content %}
+
+
+<script>
+function load()
+{
+    Employee_id = document.getElementById("sid").value
+    window.location = '/record/' + Employee_id   
+}
+
+</script>
+
+{% endblock content %}
+

@@ -19,7 +19,7 @@
         {% for leave in leaves %}
         <tr>
             <td>{{forloop.counter}}</td>
-            <td>25</td>
+            <td>{{leave.Employee_name.Employee_id}}</td>
             <td>{{leave.Start_date}}</td>
             <td>{{leave.End_date}}</td>
             <td>{{leave.No_of_Days}}</td>
