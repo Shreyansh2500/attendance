@@ -9,7 +9,7 @@ from .models import User
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required
 import numpy as np
-
+from calendar import monthrange
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -77,14 +77,29 @@ def calculateHours(user,month,year,day=datetime.date.today().day):
     monthRecord = Record.objects.all().filter(Employee_name=user,Month=month,Year=year)
     totalHour = 0
     averageHour = 0
-    weeks = [0,0,0,0]
+    day = monthrange(year,month)[1]
+    startdate = datetime.date(year,month,1)
+    enddate = datetime.date(year,month,day)
+    startweek = int(startdate.strftime("%U"))
+    endweek = int(enddate.strftime("%U"))
+    weeks = [x for x in range(startweek,endweek+1)]
+    print(weeks)
+    print(startweek)
+    print(endweek)
+    weekHour = [0 for x in range(startweek,endweek+1)]
 
     for hr in monthRecord:
         totalHour+=hr.Time_worked
+        curr = int(hr.Date.strftime("%U"))
+        currIndex = weeks.index(curr)
+        print(currIndex)
+        weekHour[currIndex]+=hr.Time_worked
 
-    averageHour = round(totalHour/day,2)
+    medical,personal,present,absent,Holiday=calculatePercentage(user,datetime.date.today().month,datetime.date.today().year)
+    averageHour = round(totalHour/(present+absent),2)
     totalHour = round(totalHour,2)
-    return (totalHour,averageHour)    
+    print(weekHour)
+    return (totalHour,averageHour,weekHour)    
 
 @login_required(login_url='/login')
 def dashboard(request):
@@ -100,7 +115,7 @@ def dashboard(request):
     cal = HTMLCalendar().formatmonth(year, month_number)
     val = calendar.month(year, month_number)
     '''
-    totalH,averH = calculateHours(request.user,datetime.date.today().month,datetime.date.today().year)
+    totalH,averH,weekHour = calculateHours(request.user,datetime.date.today().month,datetime.date.today().year)
     medical,personal,present,absent,Holiday=calculatePercentage(request.user,datetime.date.today().month,datetime.date.today().year)
     return render(request,"dashboard.html",locals())
 
@@ -125,7 +140,7 @@ def history(request):
 def seekEmployeeRecord(request,Employee_id):
     users = User.objects.all().filter(Manager=False).order_by('-Employee_id')
     currentUser = users.filter(Employee_id=Employee_id).first()
-    totalH,averH = calculateHours(currentUser,datetime.date.today().month,datetime.date.today().year)
+    totalH,averH,weekHour = calculateHours(currentUser,datetime.date.today().month,datetime.date.today().year)
     medical,personal,present,absent,Holiday=calculatePercentage(currentUser,datetime.date.today().month,datetime.date.today().year)
     leaves = find_leaves(currentUser)
     return render(request,"record.html",locals())
@@ -136,7 +151,7 @@ def seekEmployeeRecord(request,Employee_id):
 def record(request):
     users = User.objects.all().filter(Manager=False).order_by('-Employee_id')
     currentUser = users.first()
-    totalH,averH = calculateHours(currentUser,datetime.date.today().month,datetime.date.today().year)
+    totalH,averH,weekHour = calculateHours(currentUser,datetime.date.today().month,datetime.date.today().year)
     medical,personal,present,absent,Holiday=calculatePercentage(currentUser,datetime.date.today().month,datetime.date.today().year)
     leaves = find_leaves(currentUser)
     print(leaves)

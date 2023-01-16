@@ -32,12 +32,13 @@
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Weeks", "hours", { role: "style" }],
-            ["Week1", 18.94, "#b87333"],
-            ["Week2", 20.49, "silver"],
-            ["Week3", 19.30, "gold"],
-            ["Week4", 21.45, "color: #e5e4e2"]
-        ]);
+     ["weeks", "hours", { role: "style" }],
+      ["week1", {{ weekHour.0 }}, "#b87333"],
+     ["week2", {{ weekHour.1 }}, "silver"],
+      ["week3", {{ weekHour.2 }}, "gold"],
+      ["week4", {{ weekHour.3 }}, "color: #e5e4e2"],
+     ["week5", {{ weekHour.4 }}, "color: #e5e4e2"]
+    ]);
 
         var view = new google.visualization.DataView(data);
         view.setColumns([0, 1,

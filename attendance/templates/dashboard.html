@@ -31,12 +31,14 @@
   google.charts.load("current", { packages: ['corechart'] });
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
+    
     var data = google.visualization.arrayToDataTable([
-      ["weeks", "hours", { role: "style" }],
-      ["week1", 18.94, "#b87333"],
-      ["week2", 20.49, "silver"],
-      ["week3", 19.30, "gold"],
-      ["week4", 21.45, "color: #e5e4e2"]
+     ["weeks", "hours", { role: "style" }],
+      ["week1", {{ weekHour.0 }}, "#b87333"],
+     ["week2", {{ weekHour.1 }}, "silver"],
+      ["week3", {{ weekHour.2 }}, "gold"],
+      ["week4", {{ weekHour.3 }}, "color: #e5e4e2"],
+     ["week5", {{ weekHour.4 }}, "color: #e5e4e2"]
     ]);
 
     var view = new google.visualization.DataView(data);
@@ -65,6 +67,7 @@
     <div id="columnchart_values"></div>
   </div>
   <div class="calendar">
+    
   <!-- <h3>JANUARY 2023</h3>
     <table>
       <thead>
