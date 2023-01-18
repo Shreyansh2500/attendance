@@ -25,6 +25,8 @@ urlpatterns = [
     path('approval/',views.approval,name="approval"),
     path('',views.home,name="home"),
     path('record/<int:Employee_id>/',views.seekEmployeeRecord,name = "chooseRecord"),
+    path('record/<int:Employee_id>/<int:year>/<int:month>',views.seekEmployeeRecord,name = "chooseRecord"),
+    
 
     path('record/',views.record,name="record"),
     path('request/',views.request,name="request"),
@@ -34,3 +36,7 @@ urlpatterns = [
     #path('<int:year>/<str:month>/', views.home, name="home"),
     path('dashboard/',views.dashboard),
 ]
+
+admin.site.site_header = "Attendance and Leave Management System"
+admin.site.site_title = "Admin Area"
+admin.site.index_title = "Welcome To The Admin Area..."

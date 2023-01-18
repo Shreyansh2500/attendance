@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
+<title>Dashboard</title>
 <link rel="stylesheet" href="{% static 'dashboard.css' %}">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -68,76 +69,34 @@
   </div>
   <div class="calendar">
     
-  <!-- <h3>JANUARY 2023</h3>
+  <h3>{{monthName|upper}} {{ year }}</h3>
     <table>
       <thead>
         <tr>
-          <th>sun</th>
           <th>mon</th>
           <th>tue</th>
           <th>wed</th>
           <th>thu</th>
           <th>fri</th>
           <th>sat</th>
+          <th>sun</th>
         </tr>
       </thead>
       <tbody>
+
+        {% for j in cal %}
         <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-        </tr>
-        <tr>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td>20</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>22</td>
-          <td>23</td>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td>27</td>
-          <td>28</td>
-        </tr>
-        <tr>
-          <td>29</td>
-          <td>30</td>
-          <td>31</td>
+          {% for i in j %}
+          {% if i.0 %}
+          <td class="{{ i.1 }}">{{ i.0 }}</td>
+          {% else %}
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          {% endif %}
+          {% endfor %}
         </tr>
+        {% endfor %}
       </tbody>
-    </table>-->
-  <!-- {{ cal|safe }}-->
-
-
-
-
-
-
-
-
+    </table>
 
 
   </div>

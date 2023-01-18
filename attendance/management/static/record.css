@@ -45,6 +45,7 @@ body {
     border-radius: 2%;
     background-color: rgb(255, 255, 255);
     padding-left: 3%;
+    overflow: auto;
 }
 
 .outer {
@@ -104,10 +105,11 @@ body {
 
 }
 
-.calendar tbody td:first-child,
+.calendar tbody td:nth-child(6),
 .calendar tbody td:last-child {
     font-weight: 500;
-    color: red;
+    color: red !important;
+    background-color: white !important;
 }
 
 .calendar table th {
@@ -117,6 +119,7 @@ body {
 
 .calendar table td {
     text-align: center;
+    border: 1px solid black;
 }
 
 .calendar {
@@ -183,4 +186,19 @@ body {
     text-align: center;
     padding-top: 5px;
     border: 1px solid;
+}
+
+.Present {
+    color: rgb(255, 255, 255);
+    background-color: green;
+}
+
+.Absent {
+    color: white;
+    background-color: red;
+}
+
+.Leave {
+    color: white;
+    background-color: lightblue;
 }
